@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: omegaelz-crm
+    runtime: node
+    plan: starter
+    buildCommand: npm install && npm run build
+    startCommand: node dist/boot.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: DATABASE_URL
+        sync: false
+      - key: APP_ID
+        sync: false
+      - key: APP_SECRET
+        sync: false
+      - key: KIMI_AUTH_URL
+        value: https://pixie-lora-api-dev.tossteam.cn/oauth/authorize
+      - key: KIMI_OPEN_URL
+        value: https://pixie-lora-api-dev.tossteam.cn/open/api/v1
+      - key: JWT_SECRET
+        generateValue: true
+      - key: OWNER_UNION_ID
+        value: ""
